@@ -1,0 +1,16 @@
+tasks:
+  - init: pnpm install && pnpm run dev
+
+vscode:
+  extensions:
+    - 'Gruntfuggly.todo-tree'
+    - 'bradlc.vscode-tailwindcss'
+    - 'svelte.svelte-vscode'
+    - 'esbenp.prettier-vscode'
+    - 'moalamri.inline-fold'
+    - 'antfu.iconify'
+    - 'eamodio.gitlens'
+    - 'cschleiden.vscode-github-actions'
+    - 'GitHub.copilot'
+    - 'dbaeumer.vscode-eslint'
+    - 'chunsen.bracket-select'

@@ -1,0 +1,17 @@
+/* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
+/* Write your global styles here, in PostCSS syntax */
+
+.center-cols {
+	@apply flex flex-col items-center justify-center;
+}
+.center-rows {
+	@apply flex flex-row items-center justify-center;
+}
+
+body {
+	background: url('/back.png');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
