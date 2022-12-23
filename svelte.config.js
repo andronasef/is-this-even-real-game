@@ -1,6 +1,8 @@
-import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import preprocess from 'svelte-preprocess';
+
+const dev = process.argv.includes('dev');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -18,7 +20,11 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
+		paths: {
+			base: dev ? '' : '/is-this-even-real-game',
+		},
+
+		adapter: adapter({}),
 		alias: {
 			$lib: './src/lib'
 		}
