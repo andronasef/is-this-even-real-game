@@ -1,5 +1,5 @@
-<div class="center-cols	h-full">
-	<div class="lds-ripple ">
+<div class="center-cols h-full">
+	<div class="lds-ripple">
 		<div />
 		<div />
 	</div>

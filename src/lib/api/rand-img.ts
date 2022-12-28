@@ -1,3 +1,5 @@
+import game from '$lib/stores/game'
+import { get } from 'svelte/store'
 import randWord from './rand-word'
 
 export enum ImgType {
@@ -12,7 +14,14 @@ export default async function randImg() {
 
     const type = randType === 0 ? ImgType.stock : ImgType.stable
     const img = await randFuncs[randType]()
-    return { img, type }
+
+    game.update(game => {
+        game.img = img
+        game.imgType = type
+        return game
+    })
+
+    loadImage()
 }
 
 export async function randStockImg(): Promise<string> {
@@ -41,3 +50,14 @@ async function lexicaImg(query: string) {
     return img
 }
 
+
+function loadImage() {
+    const img = new Image()
+    img.src = get(game).img
+    img.onload = () => {
+        game.update(game => {
+            game.isImageLoaded = true
+            return game
+        })
+    }
+}
