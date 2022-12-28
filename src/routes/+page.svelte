@@ -25,6 +25,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Is This Even Real?</title>
+</svelte:head>
+
 <div class="center-cols md:flex-row w-full gap-5 md:gap-0">
 	<!-- IMAGE -->
 	<div class="center-cols md:w-1/2">
