@@ -16,7 +16,7 @@ export default async function randImg() {
 }
 
 export async function randStockImg(): Promise<string> {
-    const query: string = randWord()
+    const query: string = await randWord()
     const res = await fetch(`https://source.unsplash.com/random/1024x1024/?${query}`)
     if (res.url.includes("source-404")) {
         return await randStockImg()
@@ -27,7 +27,7 @@ export async function randStockImg(): Promise<string> {
 
 // made multipe stable image sources due to rate limits
 export async function randStableImg() {
-    const query: string = randWord()
+    const query: string = await randWord()
     const providers = [lexicaImg,]
     const randprovider = providers[Math.floor(Math.random() * providers.length)]
     // rand item from list
@@ -37,7 +37,7 @@ export async function randStableImg() {
 
 async function lexicaImg(query: string) {
     const res = await (await fetch(`https://lexica.art/api/v1/search?q=${query}`)).json()
-    const img = res.images[0].src
+    const img = res.images[Math.floor(Math.random() * res.images.length)].src
     return img
 }
 
