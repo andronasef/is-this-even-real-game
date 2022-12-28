@@ -2,12 +2,9 @@
 	import randImg from '$lib/api/rand-img';
 	import GameChoice from '$lib/components/home/game-choice.svelte';
 	import GameImage from '$lib/components/home/game-image.svelte';
-	import game from '$lib/stores/game';
 	import { onMount } from 'svelte';
 
 	onMount(async () => await randImg());
-
-	$: console.log($game);
 </script>
 
 <svelte:head>
